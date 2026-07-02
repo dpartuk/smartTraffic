@@ -99,7 +99,13 @@ Coverage: 82–100% across all features. Final dataset: 2,070 segments with comp
 
 #### Multicollinearity and Feature Selection
 
-A VIF check identified 9 features with VIF > 10; the extreme case was evening_biz_count (VIF = 1,498, r = 0.999 with restaurant_count). Stepwise regression (p_enter = 0.05, p_remove = 0.10) selected only features adding significant explanatory power. See Figures 1–2 for distributions and correlation heatmap.
+A VIF check identified 9 features with VIF > 10; the extreme case was evening_biz_count (VIF = 1,498, r = 0.999 with restaurant_count). Stepwise regression (p_enter = 0.05, p_remove = 0.10) selected only features adding significant explanatory power.
+
+![Feature Distributions](data/processed/analysis/01_distributions.png)
+*Figure 1. Feature distributions across all 27 features.*
+
+![Correlation Heatmap](data/processed/analysis/02_correlation.png)
+*Figure 2. Correlation heatmap (27 × 27 features). Notable: restaurant_count ~ evening_biz_count (r = 0.999).*
 
 #### Linear Regression: Municipal vs. Traffic Features
 
@@ -109,7 +115,10 @@ A VIF check identified 9 features with VIF > 10; the extreme case was evening_bi
 | B: Municipal only | 12 | **0.212** |
 | C: Combined | 17 | 0.354 |
 
-**Central finding:** Municipal features alone (Model B) outperform traffic features (Model A), demonstrating that business registries, complaints, and demographics explain more about a street's traffic behavior than traffic's own patterns (Figure 3).
+**Central finding:** Municipal features alone (Model B) outperform traffic features (Model A), demonstrating that business registries, complaints, and demographics explain more about a street's traffic behavior than traffic's own patterns.
+
+![Regression Coefficients](data/processed/analysis/03_regression_coefs.png)
+*Figure 3. Regression coefficients for Models A (traffic), B (municipal), and C (combined).*
 
 #### Machine Learning Generalization
 
@@ -123,6 +132,9 @@ A VIF check identified 9 features with VIF > 10; the extreme case was evening_bi
 
 The Random Forest is both the most accurate and most stable. Its R² = 0.489 falls within Li et al.'s range (0.41–0.59) achieved with deep learning on imagery. The Neural Network's high variance (±0.118) reflects insufficient training data (~1,400 samples).
 
+![Model Comparison](data/processed/analysis/11_model_comparison.png)
+*Figure 4. ML model comparison: R² and stability across 5-fold cross-validation.*
+
 #### Feature Importance
 
 | Rank | Feature | Importance | Interpretation |
@@ -134,7 +146,13 @@ The Random Forest is both the most accurate and most stable. Its R² = 0.489 fal
 | 5 | total_businesses | 0.400 | Mixed-use appeal |
 | 6–10 | elderly_share, speed_variance, dir_speed_diff, young_adult_share, female_pop_growth | 0.098–0.259 | Demographics + traffic |
 
-Municipal features dominate (8 of top 10), reinforcing that municipal data is richer than traffic sensors for walkability assessment (Figure 7).
+Municipal features dominate (8 of top 10), reinforcing that municipal data is richer than traffic sensors for walkability assessment.
+
+![Permutation Importance](data/processed/analysis/07_permutation_importance.png)
+*Figure 5. Permutation feature importance (top 20 features).*
+
+![Feature Importance Comparison](data/processed/analysis/12_feature_importance_comparison.png)
+*Figure 6. Feature importance shift: Linear Regression vs. Random Forest.*
 
 #### From Speed Model to Walkability Score
 
@@ -146,7 +164,10 @@ This mirrors how Frank et al. (2010) constructed their index: regression on walk
 
 #### Walkability Scoring — PCA (Approach 1)
 
-PCA on 24 sign-flipped directional features. PC1 explains 26% of variance and captures the walkability gradient (Figure 4). Scores normalized to 0–100.
+PCA on 24 sign-flipped directional features. PC1 explains 26% of variance and captures the walkability gradient. Scores normalized to 0–100.
+
+![PCA Walkability](data/processed/analysis/04_pca_walkability.png)
+*Figure 7. PCA scree plot (left) and PC1 loadings (right).*
 
 #### Walkability Scoring — Weighted Formula (Approach 2)
 
@@ -167,7 +188,10 @@ Following the Frank Index structure, we combine importance-derived weights with 
 | young_adult_share | + | 0.013 |
 | female_pop_growth | + | 0.012 |
 
-The weighted index (1,408 segments) correlates with PCA at r = 0.950, validating it as a simpler, more interpretable alternative (Figure 13).
+The weighted index (1,408 segments) correlates with PCA at r = 0.950, validating it as a simpler, more interpretable alternative.
+
+![Weighted Index Weights](data/processed/analysis/13_weighted_index_weights.png)
+*Figure 8. Weighted walkability index: signed feature weights.*
 
 **Table 1.** Neighborhood walkability rankings (PCA score, 0–100).
 
@@ -183,6 +207,12 @@ The weighted index (1,408 segments) correlates with PCA at r = 0.950, validating
 | 38 | Rabiviim | 4.9 | 15.9 kph | Residential, few businesses or events |
 | 39 | Neve Dan | 2.9 | 17.9 kph | Car-dependent, lowest commercial activity |
 
+![Walkability Map](data/processed/analysis/05_walkability_map.png)
+*Figure 9. Walkability score map of Tel Aviv. Green = high walkability; red = low.*
+
+![Neighborhood Ranking](data/processed/analysis/06_neighborhood_ranking.png)
+*Figure 10. Neighborhood walkability ranking (all 39 scored neighborhoods).*
+
 ### 3.6 Comparison with Li et al. (2022)
 
 | VWP Category | Li et al. Visual Features | Our Municipal Proxy | Agreement |
@@ -195,6 +225,15 @@ The weighted index (1,408 segments) correlates with PCA at r = 0.950, validating
 | Pleasurability | Vegetation, person, bicycle | Restaurant density, events, young adult share | Events/restaurants capture liveliness |
 
 Four of six categories show strong alignment. The Safety category reveals a novel contribution: female population growth captures *revealed preference* — women disproportionately avoid unsafe neighborhoods, producing an aggregated safety signal invisible to cameras. Evening business count similarly proxies for Jacobs' "eyes on the street" — natural surveillance from after-dark commerce that daytime street imagery misses.
+
+![VWP Category Importance](data/processed/analysis/08_vwp_category_importance.png)
+*Figure 11. Feature importance aggregated by VWP category.*
+
+![Paper Comparison](data/processed/analysis/09_paper_comparison.png)
+*Figure 12. Detailed comparison: Li et al. visual features vs. our municipal proxies.*
+
+![Neighborhood Profiles](data/processed/analysis/10_neighborhood_profiles.png)
+*Figure 13. Neighborhood walkability profiles heatmap (top 20 neighborhoods, normalized).*
 
 ---
 
@@ -227,26 +266,6 @@ Municipal open data can serve as a viable proxy for walkability perception. Usin
 **Reproducibility.** The pipeline is implemented in open-source Python on freely available data. Any city publishing business registries, complaint logs, demographics, and traffic speeds can adapt it.
 
 ---
-
-## Figures
-
-| # | File | Description |
-|---|------|-------------|
-| 1 | 01_distributions.png | Feature distributions |
-| 2 | 02_correlation.png | Correlation heatmap (27 × 27) |
-| 3 | 03_regression_coefs.png | Regression coefficients: Models A, B, C |
-| 4 | 04_pca_walkability.png | PCA scree plot and PC1 loadings |
-| 5 | 05_walkability_map.png | Walkability score map of Tel Aviv |
-| 6 | 06_neighborhood_ranking.png | Neighborhood ranking |
-| 7 | 07_permutation_importance.png | Permutation feature importance |
-| 8 | 08_vwp_category_importance.png | Importance by VWP category |
-| 9 | 09_paper_comparison.png | Li et al. vs. our features |
-| 10 | 10_neighborhood_profiles.png | Neighborhood profiles heatmap |
-| 11 | 11_model_comparison.png | ML model comparison |
-| 12 | 12_feature_importance_comparison.png | LR vs. RF importance |
-| 13 | 13_weighted_index_weights.png | Weighted index: signed weights |
-
-Interactive map: `walkability_map.html` (Folium).
 
 ---
 
