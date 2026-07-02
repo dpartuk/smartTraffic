@@ -49,7 +49,7 @@ scripts/
   08_presentation.py          # Generate presentation.pptx (34 slides)
 
 data/processed/analysis/      # Figures (13 PNGs), model results (JSON), rankings (CSV)
-paper.md                      # Final project paper
+TLV-Street-Walkability.pdf    # Final project paper
 presentation.pptx             # Presentation (34 slides)
 presentation_notes.md         # Slide-by-slide talking points
 ```
