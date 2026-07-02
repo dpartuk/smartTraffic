@@ -1,0 +1,23 @@
+{
+  "model_type": "random_forest",
+  "params": {
+    "n_estimators": 300,
+    "min_samples_leaf": 5
+  },
+  "cv_r2_mean": 0.4892,
+  "cv_r2_std": 0.0216,
+  "cv_mae_mean": 1.9,
+  "train_r2": 0.7727,
+  "top10_permutation_importance": {
+    "total_businesses": 0.4566,
+    "speed_variance": 0.4174,
+    "dir_speed_diff": 0.2286,
+    "peak_speed_drop": 0.1786,
+    "evening_speed_recovery": 0.0777,
+    "infra_closure_count": 0.0541,
+    "parade_route_count": 0.0425,
+    "infra_complaints": 0.0245,
+    "licensed_biz_ratio": 0.0198,
+    "evening_biz_count": 0.0194
+  }
+}

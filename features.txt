@@ -1,0 +1,32 @@
+Source: gisn.tel-aviv.gov.il/arcgis/rest/services/OpenData/segs_kph_monthly_*
+Traffic speed
+
+Source: saopendata.blob.core.windows.net/…/binyanimLamas.csv
+Constructions number
+
+Source: saopendata.blob.core.windows.net/…/maagar_asakim.csv
+restaurant numbers
+
+Source: saopendata.blob.core.windows.net/…/PniyotKriyot106.csv
+Complains by type in the area
+
+Source: saopendata.blob.core.windows.net/…/rechov_sagur.csv
+Street events
+
+Source: opendatasource.tel-aviv.gov.il/OpenData_Ducaments/Uchlusiya_KvutzatUchlusiya.csv
+Age/Gender
+
+Source: saopendata.blob.core.windows.net/…/yehidot_diyur.csv
+Number of appartments
+number of businesses
+per year growth?
+
+Source: opendatasource.tel-aviv.gov.il/OpenData_Ducaments/Nayadut_Uchlusiya_Min_Gil.csv
+gender growth (women)
+
+Source: opendatasource.tel-aviv.gov.il/OpenData_Ducaments/Accessible/ses open data2017-2019.xlsx
+wealth status and trend
+
+Pride Parade Routes — GTFS zip file (GTFS_Pride_Parade_TLV_2026.zip), transit feed format
+Route should be comfortable and safe
+

@@ -1,0 +1,17 @@
+# Data files (too large for GitHub — regenerate with scripts/01-04)
+data/raw/
+data/processed/*.csv
+data/processed/*.gpkg
+data/processed/*.png
+data/processed/*.xlsx
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Claude Code
+.claude/

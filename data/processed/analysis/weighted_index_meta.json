@@ -1,0 +1,71 @@
+{
+  "method": "weighted_z_score",
+  "weight_source": "permutation_importance_linear_regression",
+  "features": [
+    {
+      "name": "restaurant_count",
+      "sign": 1,
+      "raw_importance": 2.668,
+      "normalized_weight": 0.3118
+    },
+    {
+      "name": "cars_per_100_residents",
+      "sign": -1,
+      "raw_importance": 2.127,
+      "normalized_weight": 0.2486
+    },
+    {
+      "name": "ses_cluster",
+      "sign": 1,
+      "raw_importance": 1.822,
+      "normalized_weight": 0.2129
+    },
+    {
+      "name": "noise_complaints",
+      "sign": -1,
+      "raw_importance": 0.79,
+      "normalized_weight": 0.0923
+    },
+    {
+      "name": "total_businesses",
+      "sign": 1,
+      "raw_importance": 0.4,
+      "normalized_weight": 0.0467
+    },
+    {
+      "name": "elderly_share",
+      "sign": -1,
+      "raw_importance": 0.259,
+      "normalized_weight": 0.0303
+    },
+    {
+      "name": "speed_variance",
+      "sign": -1,
+      "raw_importance": 0.152,
+      "normalized_weight": 0.0178
+    },
+    {
+      "name": "dir_speed_diff",
+      "sign": -1,
+      "raw_importance": 0.13,
+      "normalized_weight": 0.0152
+    },
+    {
+      "name": "young_adult_share",
+      "sign": 1,
+      "raw_importance": 0.111,
+      "normalized_weight": 0.013
+    },
+    {
+      "name": "female_pop_growth_yoy",
+      "sign": 1,
+      "raw_importance": 0.098,
+      "normalized_weight": 0.0115
+    }
+  ],
+  "segments_scored": 1408,
+  "score_range": [
+    0,
+    100
+  ]
+}

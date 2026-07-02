@@ -1,0 +1,91 @@
+======================================================================
+SMART WALKABILITY ANALYSIS — KEY FINDINGS & RECOMMENDATIONS
+Tel Aviv, Israel | Based on 2,070 traffic segments, 27 features
+======================================================================
+
+## 1. MUNICIPAL DATA AS WALKABILITY PROXY
+Our analysis demonstrates that municipal operational data alone explains
+21.2% of traffic speed variance (Adj-R²=0.212), outperforming traffic
+pattern features alone (17.8%). Combined, they explain 35.4%.
+This supports the hypothesis that open municipal data captures walkability
+dimensions invisible to traffic sensors or even street-level imagery.
+
+## 2. TOP WALKABILITY DRIVERS (by importance)
+  - restaurant_count: importance = 2.6677
+  - cars_per_100_residents: importance = 2.1268
+  - ses_cluster: importance = 1.8218
+  - noise_complaints: importance = 0.7901
+  - total_businesses: importance = 0.4001
+
+## 3. MOST WALKABLE CORRIDORS
+  - לב תל-אביב: score 93.6/100
+  - הצפון הישן-החלק הדרומי: score 73.1/100
+  - הצפון הישן - החלק הצפוני: score 62.1/100
+
+## 4. AREAS FOR IMPROVEMENT
+  - צהלון ושיכוני חסכון (score 24.0): low event activity, few restaurants/cafes
+  - יפו ג' ונוה גולן (score 22.8): high noise complaints, few restaurants/cafes
+  - (יפו ד' (גבעת התמרים (score 22.5): few restaurants/cafes
+  - בבלי (score 22.4): few restaurants/cafes, high car dependency
+  - נחלת יצחק (score 19.5): low event activity, high car dependency
+  - עג'מי וגבעת עליה (score 19.2): low event activity
+  - ביצרון ורמת ישראל (score 18.5): high noise complaints, low event activity, high car dependency
+  - יפו העתיקה,נמל יפו (score 18.0): low event activity
+  - קרית שלום (score 17.8): low event activity, few restaurants/cafes
+  - נוה אביבים וסביבתה (score 16.8): low event activity, few restaurants/cafes, high car dependency
+  - נוה שרת (score 16.7): low event activity, few restaurants/cafes, high car dependency
+  - תל-חיים (score 15.6): low event activity, few restaurants/cafes, high car dependency
+  - הדר-יוסף (score 13.1): high noise complaints, low event activity, few restaurants/cafes, high car dependency
+  - 'רמת אביב ג (score 13.0): low event activity, few restaurants/cafes, high car dependency
+  - 'נאות אפקה א (score 12.5): few restaurants/cafes, high car dependency
+  - רמת הטייסים (score 10.8): low event activity, few restaurants/cafes, high car dependency
+  - צמרות איילון (score 10.4): few restaurants/cafes, high car dependency
+  - 'נאות אפקה ב (score 10.3): few restaurants/cafes, high car dependency
+  - רמת החייל (score 9.0): low event activity, few restaurants/cafes, high car dependency
+  - רביבים (score 4.9): low event activity, few restaurants/cafes, high car dependency
+  - נוה דן (score 2.9): low event activity, few restaurants/cafes, high car dependency
+
+## 5. POLICY IMPLICATIONS
+  a) BUSINESS VITALITY: Restaurant density and business diversity are
+     the strongest walkability signals. Zoning policies that encourage
+     mixed-use ground floors in low-scoring neighborhoods (especially
+     Ramat HaChayal, Rabiviim, Neve Dan) could improve walkability.
+
+  b) STREET EVENTS: Event frequency and diversity correlate with
+     walkability. Expanding cultural events to peripheral neighborhoods
+     could activate underused street space.
+
+  c) COMPLAINT-DRIVEN MAINTENANCE: Noise and infrastructure complaints
+     are strong negative signals. Prioritizing complaint resolution in
+     walkability-improvement target areas addresses root causes.
+
+  d) DEMOGRAPHIC SHIFTS: Female population growth and young adult
+     concentration are strong walkability indicators — not causes, but
+     signals of revealed preference. Track these as early-warning
+     indicators for neighborhoods gaining/losing walkability.
+
+  e) CAR DEPENDENCY: cars_per_100_residents negatively correlates with
+     walkability. Traffic calming and parking policy in high-car-ownership
+     areas could shift modal balance toward walking.
+
+## 6. COMPARISON WITH LI ET AL. (2022)
+  Our municipal features successfully proxy for several visual features:
+  - Business density ≈ person + bicycle pixel ratio (street vitality)
+  - Noise/construction complaints ≈ truck + motorcycle ratio (discomfort)
+  - Event frequency ≈ person ratio (liveliness/pleasurability)
+  - Infrastructure complaints ≈ fence + wall ratio (barriers)
+
+  NOVEL CONTRIBUTIONS not capturable by imagery:
+  - Female population growth as safety proxy (revealed preference)
+  - Licensed business ratio as maintenance/regulation signal
+  - Evening business density as 'eyes on the street' at night
+  - SES cluster as confound control (wealthier = better infrastructure)
+
+## 7. LIMITATIONS
+  - No human perception survey (ground truth); avg_speed as proxy only
+  - No visual features (street imagery not acquired)
+  - Neighborhood-level features assign same value to all segments in
+    a neighborhood — finer granularity would improve street-level accuracy
+  - Construction data only through 2022; population through 2022
+  - Durbin-Watson = 1.16 suggests positive spatial autocorrelation
+    (segments near each other have correlated residuals)

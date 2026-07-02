@@ -1,0 +1,44 @@
+{
+  "model_type": "linear_regression_stepwise",
+  "model_a": {
+    "name": "Traffic only",
+    "predictors": 4,
+    "adj_r2": 0.1779
+  },
+  "model_b": {
+    "name": "Municipal only",
+    "predictors": 12,
+    "adj_r2": 0.2121
+  },
+  "model_c": {
+    "name": "Combined",
+    "predictors": 17,
+    "adj_r2": 0.3542
+  },
+  "model_c_features": [
+    "dir_speed_diff",
+    "speed_variance",
+    "total_businesses",
+    "licensed_biz_ratio",
+    "peak_speed_drop",
+    "elderly_share",
+    "evening_speed_recovery",
+    "infra_closure_count",
+    "restaurant_count",
+    "cars_per_100_residents",
+    "ses_cluster",
+    "residential_density",
+    "light_rail_closures",
+    "young_adult_share",
+    "construction_starts",
+    "noise_complaints",
+    "female_pop_growth_yoy"
+  ],
+  "permutation_importance_top5": {
+    "restaurant_count": 2.67,
+    "cars_per_100_residents": 2.13,
+    "ses_cluster": 1.82,
+    "noise_complaints": 0.79,
+    "total_businesses": 0.62
+  }
+}
